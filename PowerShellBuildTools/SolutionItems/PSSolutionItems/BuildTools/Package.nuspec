@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0"?>
 <package>
   <metadata>
-    <id>Ecentric.ReconAssistPlus.Tools</id>
+    <id>Tools</id>
     <version>1.0.1</version>
     <authors>Jamie Oglethorpe</authors>
     <owners>Jamie Oglethorpe</owners>
-    <projectUrl>https://dev.azure.com/epsdev/ReconAssistPlus/_git/Ecentric.ReconAssistPlus.Tools</projectUrl>
+    <projectUrl>URI</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>ReconAssistPlus Build, Release, and Deploy tools</description>
     <releaseNotes>Initial release</releaseNotes>
