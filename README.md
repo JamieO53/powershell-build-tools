@@ -1,2 +1,2 @@
 # powershell-build-tools
-Assembles source files into a single script or module
+Assembles PowerShell source files into a single script or module
