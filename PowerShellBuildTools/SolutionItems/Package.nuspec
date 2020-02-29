@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Ecentric.PowerShell.BuildTools</id>
+    <version>1.0.1</version>
+    <authors>Jamie Oglethorpe</authors>
+    <owners>Ecentric Payment Systems</owners>
+    <projectUrl>https://dev.azure.com/epsdev/SharedServices/_git/Ecentric.PowerShell.BuildToolss</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>PowerShell Build tools</description>
+    <releaseNotes>Initial release</releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>Ecentric PowerShell Build</tags>
+  </metadata>
+</package>

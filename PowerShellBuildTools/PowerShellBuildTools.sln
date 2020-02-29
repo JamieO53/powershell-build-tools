@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "PowerShellBuilder", "PowerShellBuilder\PowerShellBuilder.pssproj", "{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{E128D175-22E8-4049-8ADA-71BFBFA03638}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\BuildAll.ps1 = SolutionItems\BuildAll.ps1
+		SolutionItems\BuildTools.config = SolutionItems\BuildTools.config
+		SolutionItems\Get-PackageContent.ps1 = SolutionItems\Get-PackageContent.ps1
+		SolutionItems\GetPackageContent.cmd = SolutionItems\GetPackageContent.cmd
+		SolutionItems\Package.nuspec = SolutionItems\Package.nuspec
+		SolutionItems\Package.ps1 = SolutionItems\Package.ps1
+		SolutionItems\Upload PSSolutionItems.txt = SolutionItems\Upload PSSolutionItems.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PSSolutionItems", "PSSolutionItems", "{4300267B-EE6C-47AC-8B95-A9B862793BE8}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\PSSolutionItems\.gitignore = SolutionItems\PSSolutionItems\.gitignore
+		SolutionItems\PSSolutionItems\azure-pipelines.yml = SolutionItems\PSSolutionItems\azure-pipelines.yml
+		SolutionItems\PSSolutionItems\nuget.config = SolutionItems\PSSolutionItems\nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildTools", "BuildTools", "{33D9519A-ACA8-41BD-9C92-CD058C59B5DF}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\PSSolutionItems\BuildTools\BuildTools.config = SolutionItems\PSSolutionItems\BuildTools\BuildTools.config
+		SolutionItems\PSSolutionItems\BuildTools\Get-PackageContent.ps1 = SolutionItems\PSSolutionItems\BuildTools\Get-PackageContent.ps1
+		SolutionItems\PSSolutionItems\BuildTools\GetPackageContent.cmd = SolutionItems\PSSolutionItems\BuildTools\GetPackageContent.cmd
+		SolutionItems\PSSolutionItems\BuildTools\Package.nuspec = SolutionItems\PSSolutionItems\BuildTools\Package.nuspec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{92818486-F6B8-4292-984B-8269D5AAC266}"
+	ProjectSection(SolutionItems) = preProject
+		Template\Build.ps1 = Template\Build.ps1
+		Template\BuildAll.ps1 = Template\BuildAll.ps1
+		Template\Package.ps1 = Template\Package.ps1
+	EndProjectSection
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "PowerShellPackage", "PowerShellPackage\PowerShellPackage.pssproj", "{8AF97B03-B94A-4B2E-A228-05806A6EFD8B}"
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "PowerShellScriptAnalyzer", "PowerShellScriptAnalyzer\PowerShellScriptAnalyzer.pssproj", "{34F20631-6B03-4D51-9F9E-ECD0388EC39C}"
+EndProject
+Project("{F5034706-568F-408A-B7B3-4D38C6DB8A32}") = "PowershellTestUtilities", "PowershellTestUtilities\PowershellTestUtilities.pssproj", "{7EC90447-668F-4044-B860-F67218D77160}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", "{A6AA9EC9-9874-4D15-822E-805B6A3286EA}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\PowerShell\GitExtension.psd1 = SolutionItems\PowerShell\GitExtension.psd1
+		SolutionItems\PowerShell\GitExtension.psm1 = SolutionItems\PowerShell\GitExtension.psm1
+		SolutionItems\PowerShell\NuGetShared.psd1 = SolutionItems\PowerShell\NuGetShared.psd1
+		SolutionItems\PowerShell\NuGetShared.psm1 = SolutionItems\PowerShell\NuGetShared.psm1
+		SolutionItems\PowerShell\NuGetSharedPacker.psd1 = SolutionItems\PowerShell\NuGetSharedPacker.psd1
+		SolutionItems\PowerShell\NuGetSharedPacker.psm1 = SolutionItems\PowerShell\NuGetSharedPacker.psm1
+		SolutionItems\PowerShell\VSTSExtension.psd1 = SolutionItems\PowerShell\VSTSExtension.psd1
+		SolutionItems\PowerShell\VSTSExtension.psm1 = SolutionItems\PowerShell\VSTSExtension.psm1
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAFC0C6-A428-4D30-A9F9-700E829FEA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF97B03-B94A-4B2E-A228-05806A6EFD8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF97B03-B94A-4B2E-A228-05806A6EFD8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF97B03-B94A-4B2E-A228-05806A6EFD8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF97B03-B94A-4B2E-A228-05806A6EFD8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F20631-6B03-4D51-9F9E-ECD0388EC39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F20631-6B03-4D51-9F9E-ECD0388EC39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F20631-6B03-4D51-9F9E-ECD0388EC39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F20631-6B03-4D51-9F9E-ECD0388EC39C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC90447-668F-4044-B860-F67218D77160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC90447-668F-4044-B860-F67218D77160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC90447-668F-4044-B860-F67218D77160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC90447-668F-4044-B860-F67218D77160}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4300267B-EE6C-47AC-8B95-A9B862793BE8} = {E128D175-22E8-4049-8ADA-71BFBFA03638}
+		{33D9519A-ACA8-41BD-9C92-CD058C59B5DF} = {4300267B-EE6C-47AC-8B95-A9B862793BE8}
+		{92818486-F6B8-4292-984B-8269D5AAC266} = {E128D175-22E8-4049-8ADA-71BFBFA03638}
+		{A6AA9EC9-9874-4D15-822E-805B6A3286EA} = {4300267B-EE6C-47AC-8B95-A9B862793BE8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F43AE98-0707-4DA7-BA40-066C0EA7C5F9}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,95 @@
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: 4tecture.BuildVersioning.BuildVersioning.BuildVersioning@0
+  displayName: BuildVersioning
+  inputs:
+    versionSource: variable
+    paramOverwriteFourthDigitWithBuildCounter: true
+    doConvertAssemblyInfoToLowerCase: true
+    doReplaceNuspec: true
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    command: 'restore'
+    restoreSolution: '$(solution)'
+    feedsToUse: 'select'
+    vstsFeed: 'ac66a39a-93cb-4919-8c22-7a604a5dfb8b'
+- task: NuGetCommand@2
+  displayName: 'NuGet install Ecentric.PowerShell.BuildTools'
+  inputs:
+    command: custom
+    arguments: 'install Ecentric.PowerShell.BuildTools'
+    feedsToUse: 'select'
+    vstsFeed: 'ac66a39a-93cb-4919-8c22-7a604a5dfb8b'
+- task: NuGetCommand@2
+  displayName: 'NuGet install NuGetSharedPacker'
+  inputs:
+    command: custom
+    arguments: 'install NuGetSharedPacker -Version 0.1.245-bugfix'
+    feedsToUse: 'select'
+    vstsFeed: 'ac66a39a-93cb-4919-8c22-7a604a5dfb8b'
+- task: PowerShell@2
+  displayName: 'Get package content'
+  inputs:
+    targetType: filePath
+    filePath: './BuildTools/Get-PackageContent.ps1'
+    workingDirectory: BuildTools
+- task: PowerShell@2
+  displayName: 'Build PowerShell projects'
+  inputs:
+    targetType: filePath
+    filePath: './BuildTools/BuildAll.ps1'
+    arguments: '-Configuration $(BuildConfiguration)'
+    workingDirectory: BuildTools
+- powershell: |
+   Install-Module  -Name Pester -MinimumVersion 4.9.0 -Repository PSGallery -Scope CurrentUser -Force
+   Import-Module Pester -MinimumVersion 4.9.0
+   Invoke-Pester -EnableExit
+  displayName: 'Run tests'
+- powershell: |
+   Write-Host "Version $(BuildVersion.Version)"
+   Import-Module .\BuildTools\PowerShellBuilder.psd1
+   $version = '$(BuildVersion.Version)'
+   Get-ChildItem .\BuildTools\*.psd1 -Recurse | ForEach-Object {
+       Set-ModuleManifest -Path $_.FullName -Values @{ ModuleVersion = $version }
+   }
+  displayName: 'Set module manifest versions'
+  condition: and(succeeded(), eq(variables['createPackage'], 'true'))
+- task: PowerShell@2
+  displayName: 'Prepare NuGet package'
+  inputs:
+    targetType: filePath
+    filePath: ./BuildTools/Package.ps1
+    arguments: '-Configuration $(BuildConfiguration)'
+    workingDirectory: BuildTools
+  condition: and(succeeded(), eq(variables['createPackage'], 'true'))
+- task: NuGetCommand@2
+  displayName: 'NuGet create package'
+  inputs:
+    command: custom
+    arguments: 'pack $(Build.Repository.LocalPath)\BuildTools\Package.nuspec -Version $(BuildVersion.Version) -BasePath $(Build.Repository.LocalPath)\NuGet -OutputDirectory $(Build.ArtifactStagingDirectory)'
+  condition: and(succeeded(), eq(variables['createPackage'], 'true'))
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    publishVstsFeed: 'ac66a39a-93cb-4919-8c22-7a604a5dfb8b'
+  condition: and(succeeded(), eq(variables['createPackage'], 'true'))

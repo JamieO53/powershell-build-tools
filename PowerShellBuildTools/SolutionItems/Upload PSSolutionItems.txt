@@ -1,0 +1,5 @@
+PSSolutionItems is the default content for PowerShell projects. When it is changed, ZIP the folder and upload it to the Wiki assets.
+https://ecentricza.sharepoint.com/sites/EPSArchitecture/SiteAssets/Forms/AllItems.aspx?viewid=c59aeb69%2D83e9%2D4938%2Da033%2D48924f5050c7&id=%2Fsites%2FEPSArchitecture%2FSiteAssets%2FSitePages%2FPowerShellSolutionStructure
+
+The download link is on
+https://ecentricza.sharepoint.com/sites/EPSArchitecture/SitePages/PowerShellSolutionStructure.aspx
